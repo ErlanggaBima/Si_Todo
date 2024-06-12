@@ -132,7 +132,7 @@ class WorkspaceController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
-            'workspaceName' => 'required',
+            'workspaceName' => 'required |max:10',
         ], $messages);
 
         if ($validator->fails()) {

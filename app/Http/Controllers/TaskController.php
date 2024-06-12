@@ -93,11 +93,14 @@ class TaskController extends Controller
     public function update(Request $request, string $id)
     {
         $messages = [
-            'required' => 'Task name cannot be empty',
+            'required' => 'Task cannot be empty',
         ];
+        
 
         $validator = Validator::make($request->all(), [
             'taskName' => 'required',
+            'startDate' => 'required|date',
+            'dueDate' => 'required|date',
         ], $messages);
 
         if ($validator->fails()) {
